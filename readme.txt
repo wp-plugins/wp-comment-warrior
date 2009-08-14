@@ -55,13 +55,13 @@ If you have any question or suggestion, please post here or mail to flarefox at 
 
 In 2005 and 2006 I played world of warcraft for several months. That's why I name *the most active commentators* as WARRIORS!
 
-= How to use the plugin?
+= How to use the plugin? =
 
 After install and activate it, you can add `Comment Warrior` Widget in admin panel, or you can add below codes anywhere:
 
 `<?php if function_exists('show_comment_warrior') show_comment_warrior(); ?>`
 
-Then a `ul-li` list will be generated.
+A `ul-li` list will be generated.
 
 = The widget's style is urgely, or it doesn't display at all! =
 
@@ -77,7 +77,7 @@ Well, it's a little complicated. You must manually insert below codes into a rig
 
 `<?php if function_exists('get_cup') get_cup(); ?>`
 
-The codes will generate an img tag.
+An img tag will be generated.
 
 = How to find the right place to add codes? =
 
@@ -87,11 +87,11 @@ Here is a sample walkthrough.
 
 2. If find, check args of wp_list_comments function.
 
-2.1 If the args contain some string like `callback=custom_list_comments`, the right place is just in function `custom_list_comments`.
+3. If the args contain some string like `callback=custom_list_comments`, the right place is just in function `custom_list_comments`.
 
-2.2. If the args don't contain `callback`, the right place lies in function start_el in wp-includes/comment-template.php.
+4. If the args don't contain `callback`, the right place lies in function start_el in wp-includes/comment-template.php.
 
-3. If not find, the right place is somewhere in comment.php in the theme folder.
+5. If not find `wp_list_comments`, the right place is somewhere in comment.php in the theme folder.
 
 *I admit it may be not simple. If anyone have a better idea such as auto insert the codes, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
