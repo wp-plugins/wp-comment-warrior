@@ -12,9 +12,11 @@ Show relevant comment warriors in different period. It also can insert an honor 
 
 = This plugin has two purposes =
 
-Firstly, stat comment warriors periodically, and display relevant warrior list in different period. For example, open an article posted in Jul. 2009, the widget of this plugin will only list warriors in Jul. 2009.
+Firstly, stat comment warriors periodically, and show relevant warriors for different period. For example, when open an article posted in Jul. 2009, widget will list warriors in Jul. 2009.
 
-Secondly, when a comment's author is a warrior, you can show an cup image in his or her comment.
+Secondly, if a comment's author is a warrior, an cup image can be shown in the warrior's comment.
+
+Dunno what is a comment warrior? Pls refer to FAQ Section:-)
 
 = Options =
 
