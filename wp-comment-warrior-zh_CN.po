@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Lively Commenter Plugin for Wordpress 2.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-11 05:34+0800\n"
+"PO-Revision-Date: 2009-08-11 05:34+0800\n"
+"Last-Translator: flarefox <flarefox@163.com>\n"
+"Language-Team: http://mathelite.cn <flarefox@163.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comment-warrior-options.php:54
+msgid "Comment Warrior Options"
+msgstr "灌水先锋的设定"
+
+#: comment-warrior-options.php:59
+msgid "Updated"
+msgstr "已更新"
+
+#: comment-warrior-options.php:64
+msgid "No Comment Warrior Option Updated"
+msgstr "灌水先锋的设定 未更新"
+
+#: comment-warrior-options.php:186
+msgid "You can config comment warrior plugin on this page."
+msgstr "在此页面，你可以设定灌水先锋的各项参数。"
+
+#: comment-warrior-options.php:190
+msgid "Comment Warrior Options Page"
+msgstr "灌水先锋设定页"
+
+#: comment-warrior-options.php:192
+msgid "Widget Settings"
+msgstr "小工具设定"
+
+#: comment-warrior-options.php:193
+msgid "Cup Settings"
+msgstr "奖杯设定"
+
+#: comment-warrior-options.php:199
+msgid "Comment Warrior Num:"
+msgstr "最多显示人数:"
+
+#: comment-warrior-options.php:205
+msgid "Warrior Show Style:"
+msgstr "名字显示格式:"
+
+#: comment-warrior-options.php:208
+msgid "Name and Image"
+msgstr "图像和文本"
+
+#: comment-warrior-options.php:209
+msgid "Image"
+msgstr "仅图像"
+
+#: comment-warrior-options.php:210
+msgid "Name"
+msgstr "仅文本"
+
+#: comment-warrior-options.php:213
+msgid "Image Size: "
+msgstr "图片大小: "
+
+#: comment-warrior-options.php:213
+msgid "px"
+msgstr "像素"
+
+#: comment-warrior-options.php:217
+msgid "Show Comment Counts:"
+msgstr "显示评论数量:"
+
+#: comment-warrior-options.php:220
+#: comment-warrior-options.php:256
+msgid "No"
+msgstr "否"
+
+#: comment-warrior-options.php:221
+#: comment-warrior-options.php:257
+msgid "Yes"
+msgstr "是"
+
+#: comment-warrior-options.php:227
+msgid "Comment Counts Template:"
+msgstr "评论数量模板:"
+
+#: comment-warrior-options.php:231
+msgid "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : comment counts number"
+msgstr "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : 评论数"
+
+#: comment-warrior-options.php:234
+msgid "Stat Period Type:"
+msgstr "数据更新周期:"
+
+#: comment-warrior-options.php:237
+msgid "Calendar Month"
+msgstr "自然月"
+
+#: comment-warrior-options.php:238
+msgid "Calendar Year"
+msgstr "自然年"
+
+#: comment-warrior-options.php:239
+msgid "Custom"
+msgstr "自定义"
+
+#: comment-warrior-options.php:242
+msgid "days"
+msgstr "天"
+
+#: comment-warrior-options.php:252
+msgid "Toogle Help Info"
+msgstr "帮助信息 开/关"
+
+#: comment-warrior-options.php:252
+msgid "Show Cup:"
+msgstr "显示奖杯图片:"
+
+#: comment-warrior-options.php:264
+msgid "To show the cup in comment list, you must insert the function \"get_cup($comment->comment_author_email)\" into some proper place in comments.php. <br />For additional information, please refer to <a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior.html\">Readme</a>."
+msgstr "在评论列表中显示奖杯，必须把函数\"get_cup($comment->comment_author_email)\"插入到comments.php的合适位置。<br />进一步的说明，请参见<a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior.html\">帮助页面</a>。"
+
+#: comment-warrior-options.php:269
+msgid "Cup Image Url:"
+msgstr "奖杯图片地址:"
+
+#: comment-warrior-options.php:273
+msgid "Leave blank to use default image."
+msgstr "留空将使用默认图片"
+
+#: comment-warrior-options.php:278
+msgid "Cup Image Width(px):"
+msgstr "奖杯图片宽度(像素):"
+
+#: comment-warrior-options.php:282
+msgid "To keep the original width, input 0 or leave blank."
+msgstr "设为0或留空以使用原始宽度."
+
+#: comment-warrior-options.php:287
+msgid "Cup Image Height(px):"
+msgstr "奖杯图片高度(像素):"
+
+#: comment-warrior-options.php:291
+msgid "To keep the original height, input 0 or leave blank."
+msgstr "设为0或留空以使用原始高度."
+
+#: comment-warrior-options.php:295
+msgid "Cup Image Preview:"
+msgstr "奖杯图片预览:"
+
+#: comment-warrior-options.php:302
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: comment-warrior-options.php:307
+msgid "Author:"
+msgstr "作者:"
+
+#: comment-warrior-options.php:308
+msgid "Version:"
+msgstr "版本:"
+
+#: comment-warrior-options.php:309
+msgid "Date:"
+msgstr "日期:"
+
+#: wp-comment-warrior.php:72
+#: wp-comment-warrior.php:425
+#: wp-comment-warrior.php:452
+msgid "Comment Warrior"
+msgstr "灌水先锋"
+
+#: wp-comment-warrior.php:279
+msgid "No comment warriors now."
+msgstr "暂无"
+
+#: wp-comment-warrior.php:381
+#: wp-comment-warrior.php:384
+msgid "Y"
+msgstr "Y年"
+
+#: wp-comment-warrior.php:382
+#: wp-comment-warrior.php:385
+msgid "M Y"
+msgstr "Y年m月"
+
+#: wp-comment-warrior.php:390
+#, php-format
+msgid "Comment Warrior! In the month %s, this person received the honor for %d comments."
+msgstr "灌水先锋！这位同志在%s灌水%d次，获得此荣誉。"
+
+#: wp-comment-warrior.php:393
+#, php-format
+msgid "Comment Warrior! In the year %s, this person received the honor for %d comments."
+msgstr "灌水先锋！这位同志在%s灌水%d次，获得此荣誉。"
+
+#: wp-comment-warrior.php:397
+#, php-format
+msgid "Comment Warrior! This person received the honor for %d comments up to now."
+msgstr "灌水先锋！这位同志合计灌水%d次，获得此荣誉。"
+
+#: wp-comment-warrior.php:400
+#, php-format
+msgid "Comment Warrior! In the last %s days, this person received the honor for %d comments."
+msgstr "灌水先锋！这位同志在最近%s天灌水%d次，获得此荣誉。"
+
+#: wp-comment-warrior.php:424
+msgid "Show top N active commentators during a selected period."
+msgstr "显示选定周期内最活跃的评论者。"
+
+#: wp-comment-warrior.php:456
+msgid "Title:"
+msgstr "标题:"
+
+#~ msgid "Show Help"
+#~ msgstr "切换帮助显示"
+#~ msgid "WP-comment-warrior Widget"
+#~ msgstr "灌水先锋 小工具"
+#~ msgid "comment warrior"
+#~ msgstr "灌水先锋"
+
+#, fuzzy
+#~ msgid "Lively commentator Options"
+#~ msgstr "灌水先锋的设定"
+
+#, fuzzy
+#~ msgid "Lively commentator Num:"
+#~ msgstr "最多显示人数:"
+#~ msgid "Lively Commenter by <a href=\"http://mathelite.cn\">FlareFox</a>"
+#~ msgstr "灌水先锋插件由<a href=\"http://mathelite.cn\">FlareFox</a>制作"
+
