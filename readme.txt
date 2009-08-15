@@ -69,7 +69,7 @@ A `ul-li` list will be generated.
 
 This problem is probably caused by css style. You can modify comment-warrior.css in plugin folder.
 
-= Cannot open option page, why? =
+= Option page doesn't work, why? =
 
 This plugin's option page need jQuery. I have tested it in wordpress 2.7 and 2.8. I dunno if other versions support jQuery too.
 
@@ -81,7 +81,7 @@ Well, it's a little complicated. You must manually insert below codes into a rig
 
 An img tag will be generated.
 
-= How to find the right place to add codes? =
+= How to find the right place to add cup codes? =
 
 Here is a sample walkthrough.
 
@@ -95,7 +95,7 @@ Here is a sample walkthrough.
 
 5. If not find `wp_list_comments`, the right place is somewhere in comment.php in the theme folder.
 
-*I admit it may be not simple. If anyone have a better idea such as auto insert the codes, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
+*I admit it may be not simple. If anyone have a better idea such as auto insert the cup image, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
 == Changelog ==
 
