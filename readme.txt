@@ -77,7 +77,7 @@ This plugin's option page need jQuery. I have tested it in wordpress 2.7 and 2.8
 
 Well, it's a little complicated. You must manually insert below codes into a right place in comments.php or elsewhere. For example, you can append them to *comment time* or *comment author picture*.
 
-`<?php if function_exists('get_cup') get_cup(); ?>`
+`<?php if function_exists('get_cup') get_cup($comment->comment_author_email); ?>`
 
 An img tag will be generated.
 
