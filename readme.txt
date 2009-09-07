@@ -4,7 +4,7 @@ Donate link:
 Tags: comments, warrior,period,stats
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: trunk
+Stable tag: 0.1.66
 
 Show relevant comment warriors in different period. It also can insert an honor cup for comment warrior in his or her comments.
 
