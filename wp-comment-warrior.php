@@ -2,7 +2,7 @@
 /*
  Plugin Name: wp-comment-warrior
  Plugin URI: http://www.mathelite.cn/archives/wordpress-comment-warrior-plugin.html
- Version: 0.1.66
+ Version: 0.2.01
  Author: FlareFox
  Description: Get the most comment warrior. The time filter can be calender month, calender year or custom days. 
  Author URI: http://mathelite.cn/
@@ -28,8 +28,8 @@
 */
 ?>
 <?php
-$ffox_lvmct_version = '0.1.66';
-$ffox_lvmct_date = '2009.08.11';
+$ffox_lvmct_version = '0.2.01';
+$ffox_lvmct_date = '2009.09.07';
 /*
  Load WP-Config File If This File Is Called Directly
 */
@@ -82,8 +82,8 @@ function get_comment_warrior()
 	global $post;
 	// 获得评论日期
 	$curtime = time();
-	$postdate = empty($post) ? date('Y-m-d 12:00:00', time()) : $post->post_date;
-	$key = '';
+	$postdate = empty($post) ? date('Y-m-d 12:00:00', $curtime) : $post->post_date;
+	$key = 'current';
 	$warrior_options = get_option('warrior_options');
 	$periodtype = intval($warrior_options['period_type']);
 	switch($periodtype) {
@@ -113,54 +113,41 @@ function get_comment_warrior()
 	return $result;
 }
 
-/* ver 0.0.53
-function get_comment_warrior()
-{
-//	if (!is_single() and !is_page())
-//		return false;
-	global $post,$pluginpath;
+function get_widget_time() {
 	// 获得评论日期
-	$postdate = $post->post_date;
-	$curtime = time();
-	$datafile = '';
 	$warrior_options = get_option('warrior_options');
 	$periodtype = intval($warrior_options['period_type']);
-	switch($periodtype) {
-		case 0:	//Calendar Month
-			if (date('Y-m', $curtime) != get_the_time('Y-m'))
-				$datafile = $pluginpath . '/data/'.get_the_time('Y-m') . '-data.dat';
-			break;
-		case 1:	// Calendar Year
-			if (date('Y', $curtime) != get_the_time('Y'))
-				$datafile = $pluginpath . '/data/'.get_the_time('Y') . '-data.dat';
-			break;
-		case 2: // Custom days
-			break;
-	}
-	if (!is_single() and !is_day() and !is_month() and !is_year())
-		$datafile = '';
-	// 若为当前时间，设定数据文件名
-	if ($datafile == '') {
-//		$datafile = $pluginpath . '/data/cur-data.dat';
-		$result = $warrior_options['cur-data'];
-		if (empty($result)) {
-			$result = calc_comment_warrior($postdate, $periodtype);
-			$warrior_options['cur-data'] = $result;
-			update_option('warrior_options', $warrior_options);
+	$result = '';
+	if (is_single() or is_day() or is_month() or is_year()) {
+		global $post;
+		switch($periodtype) {
+			case 0:	//Calendar Month
+				$result = get_the_time(__('M. Y', 'wp-comment-warrior'));
+				break;
+			case 1:	// Calendar Year
+					$result = get_the_time(__('the year Y', 'wp-comment-warrior'));
+				break;
+			case 2: // Custom days
+					$result = sprintf(__('recent %d days', 'wp-comment-warrior'), $warrior_options['period_length']);
+				break;
 		}
-		return $result;
-	}
-	if (file_exists($datafile)) {
-		// 若存在，直接读取
-		$result = load_comment_warrior($datafile);
 	} else {
-		// 若不存在，从数据库统计并存入文件
-		$result = calc_comment_warrior($postdate, $periodtype);
-		save_comment_warrior($result, $datafile);
+		$curtime = time();
+		switch($periodtype) {
+			case 0:	//Calendar Month
+				$result = date(__('M. Y', 'wp-comment-warrior'), $curtime);
+				break;
+			case 1:	// Calendar Year
+					$result = date(__('the year Y', 'wp-comment-warrior'), $curtime);
+				break;
+			case 2: // Custom days
+					$result = sprintf(__('recent %d days', 'wp-comment-warrior'), $warrior_options['period_length']);
+				break;
+		}
 	}
+	
 	return $result;
 }
-*/
 
 /*
  When a comment is posted, update datafile
@@ -239,25 +226,6 @@ function calc_comment_warrior($date, $periodtype)
 }
 
 /*
- Save comment warrior into data file
-*/
-function save_comment_warrior($warriors, $datafile)
-{
-//	$fp = fopen($datafile, 'w');
-//	fwrite($fp, serialize($warriors));
-//	fclose($fp);
-}
-
-/*
- Load comment warrior from data file
-*/
-function load_comment_warrior($datafile)
-{
-//	$result = unserialize(file_get_contents($datafile));
-//	return $result;
-}
-
-/*
  Add css style
 */
 add_action('wp_print_styles', 'comment_warrior_stylesheets');
@@ -284,31 +252,38 @@ function show_comment_warrior()
 		$img_size = empty($warrior_options['warrior_img_size']) ? 32 : $warrior_options['warrior_img_size'];
 		echo '<div class="commentwarrior">';
 		foreach($warriors as $c) {
-			echo '<a href="' . $c->url . '" title="' . $c->name;
+			$alt = $c->name;
+			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
-				$countstyle = str_replace('%COMMENT_COUNT%', '%d', $warrior_options['comment_counts_template']);
+				$countstyle = str_replace('%COMMENT_COUNT%', $c->counts, $warrior_options['comment_counts_template']);
+//				$countstyle = sprintf($countstyle, $c->counts);
+				$countstyle = str_replace('%PERIOD%', get_widget_time(), $countstyle);
+//				$countstyle = sprintf($countstyle, get_widget_time());
 			}
-			if (!empty($countstyle))
-				echo sprintf($countstyle, $c->counts);
-			echo '">' . get_avatar($c->email, $img_size) . '</a>';
+			$alt .= $countstyle;
+			echo '<a href="' . $c->url . '" title="' . $alt . 
+				'"><img src="' . get_warrior_avatar($c->email, $img_size) . '" /></a>';
 		}
 		echo '</div>';
 	}
 	else {
 		echo '<ul class="commentwarrior">';
 		foreach($warriors as $c) {
-			echo '<li>';
-			echo '<a href="' . $c->url . '" title="' . $c->name;
+			$alt = $c->name;
+			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
 				$countstyle = str_replace('%COMMENT_COUNT%', '%d', $warrior_options['comment_counts_template']);
+				$countstyle = sprintf($countstyle, $c->counts);
+				$countstyle = str_replace('%PERIOD%', '%s', $countstyle);
+				$countstyle = sprintf($countstyle, get_widget_time());
 			}
-			if (!empty($countstyle))
-				echo sprintf($countstyle, $c->counts);
-			echo'">';
+			$alt .= $countstyle;
+			echo '<li>';
+			echo '<a href="' . $c->url . '" title="' . $alt. '">';
 			if (intval($warrior_options['show_commentator_type']) == 0)
 				echo $c->name;
 			else
-				echo get_avatar($c->email, 16) . $c->name;
+				echo '<img alt="'. $alt . '" src="' . get_warrior_avatar($c->email, 16) . '" />' . $c->name;
 			echo '</a>';
 			echo '</li>';
 		}
@@ -430,9 +405,7 @@ class WP_Widget_commentwarrior extends WP_Widget
 		extract($args);
 		$title = apply_filters('widget_title', esc_attr($instance['title']));
 		echo $before_widget.$before_title.$title.$after_title;
-//		echo '<ul>'."\n";
 		show_comment_warrior();
-//		echo '</ul>'."\n";
 		echo $after_widget;
 	}
 
@@ -454,6 +427,8 @@ class WP_Widget_commentwarrior extends WP_Widget
 ?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'wp-comment-warrior'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label>
+			<br />
+			<?php _e('You can use %period% to display stats period in widget title. For example: Comment Warrior(%period%)', 'wp-comment-warrior'); ?>
 		</p>
 		<input type="hidden" id="<?php echo $this->get_field_id('submit'); ?>" name="<?php echo $this->get_field_name('submit'); ?>" value="1" />
 <?php

@@ -69,7 +69,9 @@ if(!empty($_POST['Submit'])) {
 
 $warrior_options = get_option('warrior_options');
 // Init Options
-$default = array('max_num'=>'10', 'period_type'=>'0', 'period_length'=>'30', 'show_trophy'=>'1', 'show_commentator_type'=>'2', 'warrior_img_size'=>'32','comment_counts_template'=>'(%COMMENT_COUNT%)', 'show_comment_counts'=>'1');
+$default = array('max_num'=>'10', 'period_type'=>'0', 'period_length'=>'30', 'show_trophy'=>'1', 
+'show_commentator_type'=>'2', 'warrior_img_size'=>'32','comment_counts_template'=>'(%COMMENT_COUNT% comments in %PERIOD%)', 
+'show_comment_counts'=>'1');
 $bisdirty = FALSE;
 foreach($default as $k=>$v) {
 	if (!isset($warrior_options[$k])) {
@@ -228,7 +230,10 @@ jQuery(document).ready(function(){
 			</td>
 			<td>
 				<input type="text" id="comment_counts_template" size="30" name="comment_counts_template" value="<?php _e($warrior_options['comment_counts_template']); ?>" />
-				<?php _e('<font color="#ff0000">%COMMENT_COUNT%</font> : comment counts number', 'wp-comment-warrior'); ?>
+				<br />
+				<?php _e('<font color="#ff0000">%COMMENT_COUNT%</font> : comment counts', 'wp-comment-warrior'); ?>
+				<br />
+				<?php _e('<font color="#ff0000">%PERIOD%</font> : stats period', 'wp-comment-warrior'); ?>
 			</td>
 		 <tr>
 			<td valign="top" width="20%"><?php _e('Stat Period Type:', 'wp-comment-warrior'); ?></td>
