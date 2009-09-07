@@ -128,7 +128,10 @@ function get_widget_time() {
 					$result = get_the_time(__('the year Y', 'wp-comment-warrior'));
 				break;
 			case 2: // Custom days
-					$result = sprintf(__('recent %d days', 'wp-comment-warrior'), $warrior_options['period_length']);
+					if ( $warrior_options['period_length'] <= 0 )
+						$result = __('all days', 'wp-comment-warrior');
+					else
+						$result = sprintf(__('recent %d days', 'wp-comment-warrior'), $warrior_options['period_length']);
 				break;
 		}
 	} else {
@@ -141,6 +144,9 @@ function get_widget_time() {
 					$result = date(__('the year Y', 'wp-comment-warrior'), $curtime);
 				break;
 			case 2: // Custom days
+					if ( $warrior_options['period_length'] <= 0 )
+						$result = __('all days', 'wp-comment-warrior');
+					else
 					$result = sprintf(__('recent %d days', 'wp-comment-warrior'), $warrior_options['period_length']);
 				break;
 		}
@@ -256,9 +262,7 @@ function show_comment_warrior()
 			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
 				$countstyle = str_replace('%COMMENT_COUNT%', $c->counts, $warrior_options['comment_counts_template']);
-//				$countstyle = sprintf($countstyle, $c->counts);
 				$countstyle = str_replace('%PERIOD%', get_widget_time(), $countstyle);
-//				$countstyle = sprintf($countstyle, get_widget_time());
 			}
 			$alt .= $countstyle;
 			echo '<a href="' . $c->url . '" title="' . $alt . 
@@ -272,10 +276,8 @@ function show_comment_warrior()
 			$alt = $c->name;
 			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
-				$countstyle = str_replace('%COMMENT_COUNT%', '%d', $warrior_options['comment_counts_template']);
-				$countstyle = sprintf($countstyle, $c->counts);
-				$countstyle = str_replace('%PERIOD%', '%s', $countstyle);
-				$countstyle = sprintf($countstyle, get_widget_time());
+				$countstyle = str_replace('%COMMENT_COUNT%', $c->counts, $warrior_options['comment_counts_template']);
+				$countstyle = str_replace('%PERIOD%', get_widget_time(), $countstyle);
 			}
 			$alt .= $countstyle;
 			echo '<li>';
@@ -427,8 +429,6 @@ class WP_Widget_commentwarrior extends WP_Widget
 ?>
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'wp-comment-warrior'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label>
-			<br />
-			<?php _e('You can use %period% to display stats period in widget title. For example: Comment Warrior(%period%)', 'wp-comment-warrior'); ?>
 		</p>
 		<input type="hidden" id="<?php echo $this->get_field_id('submit'); ?>" name="<?php echo $this->get_field_name('submit'); ?>" value="1" />
 <?php

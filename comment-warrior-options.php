@@ -34,8 +34,8 @@ if(!empty($_POST['Submit'])) {
 		$warrior_options['max_num'] = 10;
 	$warrior_options['period_type'] = intval($_POST['period_type']);	// 自然月、自然周、多少天
 	$warrior_options['period_length'] = intval($_POST['period_length']);
-	if ($warrior_options['period_length']<=0)
-		$warrior_options['period_length'] = 30;
+	if ($warrior_options['period_length']<0)
+		$warrior_options['period_length'] = 0;
 	$warrior_options['show_trophy'] = intval($_POST['show_trophy']);
 	$warrior_options['archive_type'] = intval($_POST['archive_type']);
 	$warrior_options['cup_image_url'] = $_POST['cup_image_url'];
@@ -70,8 +70,9 @@ if(!empty($_POST['Submit'])) {
 $warrior_options = get_option('warrior_options');
 // Init Options
 $default = array('max_num'=>'10', 'period_type'=>'0', 'period_length'=>'30', 'show_trophy'=>'1', 
-'show_commentator_type'=>'2', 'warrior_img_size'=>'32','comment_counts_template'=>'(%COMMENT_COUNT% comments in %PERIOD%)', 
-'show_comment_counts'=>'1');
+	'show_commentator_type'=>'2', 'warrior_img_size'=>'32',
+	'comment_counts_template'=>__('(%COMMENT_COUNT% comments in %PERIOD%)','wp-comment-warrior'), 
+	'show_comment_counts'=>'1');
 $bisdirty = FALSE;
 foreach($default as $k=>$v) {
 	if (!isset($warrior_options[$k])) {
@@ -266,7 +267,7 @@ jQuery(document).ready(function(){
 	</table>
 	<div style="display:none" id="cupoptions">
 	<div id="showcuphelp" style="margin:0 10px;font-size:11px;color:#F00;display:none">
-		<?php _e('To show the cup in comment list, you must insert the function "get_cup($comment->comment_author_email)" into some proper place in comments.php. <br />For additional information, please refer to <a target="_blank" href="http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior.html">Readme</a>.', 'wp-comment-warrior');?>
+		<?php _e('To show the cup in comment list, you must insert the function "get_cup($comment->comment_author_email)" into some proper place in comments.php. <br />For additional information, please refer to <a target="_blank" href="http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior-en.html">Readme</a>.', 'wp-comment-warrior');?>
 	</div>
 	<table  class="form-table">
 		<tr>
