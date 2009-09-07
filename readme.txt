@@ -66,13 +66,19 @@ After install and activate it, you can add `Comment Warrior` Widget in admin pan
 A `ul-li` list will be generated.
 
 = Can I add stats period in widget? =
+
 Sure. You can use such codes:
+
 `<?php if function_exists('get_warrior_period') echo get_warrior_period(); ?>`
 
 Example( Period Type : get_warrior_period() )
+
 `Calendar month` : Jul. 2009
+
 `Calendar month` : 2009
+
 `Custom 30 days` : recent 30 days
+
 `Custom 0 days` : all days
 
 = The widget's style is urgely, or it doesn't display at all! =
