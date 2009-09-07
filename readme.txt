@@ -1,22 +1,22 @@
 === Wordpress Comment Warrior ===
-Contributors: Flarefox
+Contributors: flarefox
 Donate link: 
 Tags: comments, warrior,period,stats
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: 0.1.66
+Stable tag: 0.2.01
 
-Show relevant comment warriors in different period. It also can insert an honor cup for comment warrior in his or her comments.
+Show relevant comment warriors in different period. Also an honor cup can be inserted for comment warriors in their comments.
 
 == Description ==
+
+Dunno what is a comment warrior? Please refer to FAQ Section.
 
 = This plugin has two purposes =
 
 Firstly, stat comment warriors periodically, and show relevant warriors for different period. For example, when open an article posted in Jul. 2009, widget will list warriors in Jul. 2009.
 
 Secondly, if a comment's author is a warrior, an cup image can be shown in the warrior's comment.
-
-Dunno what is a comment warrior? Pls refer to FAQ Section:-)
 
 = Options =
 
@@ -31,7 +31,7 @@ You can also choose whether to show `comment counts`, whether to show `cup image
 
 Find more information in `FAQ` section.
 
-If you have any question or suggestion, please post here or mail to flarefox at 163 dot com. I will response as soon as possible. Thank you!
+If you have any question or suggestion, please post here or mail to flarefox at 163 dot com. I will appreciate it very much and response as soon as possible.
 
 == Installation ==
 
@@ -39,7 +39,7 @@ If you have any question or suggestion, please post here or mail to flarefox at 
 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-3. Add widget in admin panel or a piece of codes anywhere. Please refer to FAQ section.
+3. Add widget in admin panel. You can use functions too, please refer to FAQ section.
 
 == Screenshots ==
 
@@ -55,7 +55,7 @@ If you have any question or suggestion, please post here or mail to flarefox at 
 
 = What is comment warrior? =
 
-In 2005 and 2006 I played world of warcraft for several months. That's why I name *the most active commentators* as WARRIORS!
+In 2005 and 2006 I played world of warcraft for several months. That's why I name *the most active commentators* as WARRIORS.
 
 = How to use the plugin? =
 
@@ -64,6 +64,16 @@ After install and activate it, you can add `Comment Warrior` Widget in admin pan
 `<?php if function_exists('show_comment_warrior') show_comment_warrior(); ?>`
 
 A `ul-li` list will be generated.
+
+= Can I add stats period in widget? =
+Sure. You can use such codes:
+`<?php if function_exists('get_warrior_period') echo get_warrior_period(); ?>`
+
+Example( Period Type : get_warrior_period() )
+`Calendar month` : Jul. 2009
+`Calendar month` : 2009
+`Custom 30 days` : recent 30 days
+`Custom 0 days` : all days
 
 = The widget's style is urgely, or it doesn't display at all! =
 
@@ -98,6 +108,13 @@ Here is a sample walkthrough.
 *I admit it may be not simple. If anyone have a better idea such as auto insert the cup image, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
 == Changelog ==
+= 0.2.11 =
+* fix the bug that warriors don't update.
+* add alt for image in widget.
+* add a setting. Those who comment less than `minimum comment counts` times will not be warriors.
+* widget can display stats period now.
+* `custom 0 days` equals to `all days` now.
+* and more...
 
 = 0.1.66 =
 * Rewrite option page with jQuery, thus all elements are ajaxed.

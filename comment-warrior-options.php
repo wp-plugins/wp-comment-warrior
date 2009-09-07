@@ -32,6 +32,9 @@ if(!empty($_POST['Submit'])) {
 	$warrior_options['max_num'] = intval($_POST['max_num']);
 	if ($warrior_options['max_num']<=0)
 		$warrior_options['max_num'] = 10;
+	$warrior_options['widget_min_counts'] = intval($_POST['widget_min_counts']);
+	if ($warrior_options['widget_min_counts']<0)
+		$warrior_options['widget_min_counts'] = 0;
 	$warrior_options['period_type'] = intval($_POST['period_type']);	// 自然月、自然周、多少天
 	$warrior_options['period_length'] = intval($_POST['period_length']);
 	if ($warrior_options['period_length']<0)
@@ -69,7 +72,8 @@ if(!empty($_POST['Submit'])) {
 
 $warrior_options = get_option('warrior_options');
 // Init Options
-$default = array('max_num'=>'10', 'period_type'=>'0', 'period_length'=>'30', 'show_trophy'=>'1', 
+$default = array('max_num'=>'10', 'widget_min_counts'=>'0',
+	'period_type'=>'0', 'period_length'=>'30', 'show_trophy'=>'1', 
 	'show_commentator_type'=>'2', 'warrior_img_size'=>'32',
 	'comment_counts_template'=>__('(%COMMENT_COUNT% comments in %PERIOD%)','wp-comment-warrior'), 
 	'show_comment_counts'=>'1');
@@ -204,6 +208,12 @@ jQuery(document).ready(function(){
 				<input type="text" id="max_num" name="max_num" size="30" value="<?php _e($warrior_options['max_num']); ?>" />
 			</td>
 		</tr>
+		<tr>
+			<td valign="top" width="20%"><?php _e('Minimum Comment Counts:', 'wp-comment-warrior'); ?></td>
+			<td valign="top">
+				<input type="text" id="widget_min_counts" name="widget_min_counts" size="30" value="<?php _e($warrior_options['widget_min_counts']); ?>" />
+			</td>
+		</tr>
 		 <tr>
 			<td valign="top" width="20%"><?php _e('Warrior Show Style:', 'wp-comment-warrior'); ?></td>
 			<td valign="top">
@@ -230,7 +240,7 @@ jQuery(document).ready(function(){
 				<?php _e("Comment Counts Template:", 'wp-comment-warrior'); ?>
 			</td>
 			<td>
-				<input type="text" id="comment_counts_template" size="30" name="comment_counts_template" value="<?php _e($warrior_options['comment_counts_template']); ?>" />
+				<input type="text" id="comment_counts_template" size="50" name="comment_counts_template" value="<?php _e($warrior_options['comment_counts_template']); ?>" />
 				<br />
 				<?php _e('<font color="#ff0000">%COMMENT_COUNT%</font> : comment counts', 'wp-comment-warrior'); ?>
 				<br />

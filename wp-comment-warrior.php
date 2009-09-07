@@ -113,7 +113,7 @@ function get_comment_warrior()
 	return $result;
 }
 
-function get_widget_time() {
+function get_warrior_period() {
 	// 获得评论日期
 	$warrior_options = get_option('warrior_options');
 	$periodtype = intval($warrior_options['period_type']);
@@ -225,6 +225,8 @@ function calc_comment_warrior($date, $periodtype)
 				      GROUP BY " . $identity . " ORDER BY cmtcount DESC LIMIT " . $shownumber;
 	$sql = $wpdb->get_results($query);
 	for($i=0; $i<sizeof($sql); $i++) {
+		if ( isset($warrior_options['widget_min_counts']) and ($sql[$i]->cmtcount < $warrior_options['widget_min_counts']) )
+			break;
 		$result[$i] = new comment_warrior($sql[$i]->comment_author, 
 			$sql[$i]->comment_author_email, $sql[$i]->comment_author_url, $sql[$i]->cmtcount, $sql[$i]->comment_date);
 	}
@@ -262,7 +264,7 @@ function show_comment_warrior()
 			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
 				$countstyle = str_replace('%COMMENT_COUNT%', $c->counts, $warrior_options['comment_counts_template']);
-				$countstyle = str_replace('%PERIOD%', get_widget_time(), $countstyle);
+				$countstyle = str_replace('%PERIOD%', get_warrior_period(), $countstyle);
 			}
 			$alt .= $countstyle;
 			echo '<a href="' . $c->url . '" title="' . $alt . 
@@ -277,7 +279,7 @@ function show_comment_warrior()
 			$countstyle = '';
 			if ($warrior_options['show_comment_counts'] == 1) {
 				$countstyle = str_replace('%COMMENT_COUNT%', $c->counts, $warrior_options['comment_counts_template']);
-				$countstyle = str_replace('%PERIOD%', get_widget_time(), $countstyle);
+				$countstyle = str_replace('%PERIOD%', get_warrior_period(), $countstyle);
 			}
 			$alt .= $countstyle;
 			echo '<li>';
