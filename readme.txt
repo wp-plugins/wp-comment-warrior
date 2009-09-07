@@ -108,7 +108,7 @@ Here is a sample walkthrough.
 *I admit it may be not simple. If anyone have a better idea such as auto insert the cup image, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
 == Changelog ==
-= 0.2.11 =
+= 0.2.01 =
 * fix the bug that warriors don't update.
 * add alt for image in widget.
 * add a setting. Those who comment less than `minimum comment counts` times will not be warriors.
