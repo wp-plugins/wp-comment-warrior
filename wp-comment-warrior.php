@@ -3,8 +3,8 @@
  Plugin Name: wp-comment-warrior
  Plugin URI: http://www.mathelite.cn/archives/wordpress-comment-warrior-plugin.html
  Version: 0.2.01
- Author: FlareFox
- Description: Get the most comment warrior. The time filter can be calender month, calender year or custom days. 
+ Author: flarefox
+ Description: Show the most active commenters. The time filter can be calender month, calender year or custom days. 
  Author URI: http://mathelite.cn/
 */
 ?>
