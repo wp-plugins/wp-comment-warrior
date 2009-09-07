@@ -66,13 +66,19 @@ After install and activate it, you can add `Comment Warrior` Widget in admin pan
 A `ul-li` list will be generated.
 
 = Can I add stats period in widget? =
+
 Sure. You can use such codes:
+
 `<?php if function_exists('get_warrior_period') echo get_warrior_period(); ?>`
 
 Example( Period Type : get_warrior_period() )
+
 `Calendar month` : Jul. 2009
+
 `Calendar month` : 2009
+
 `Custom 30 days` : recent 30 days
+
 `Custom 0 days` : all days
 
 = The widget's style is urgely, or it doesn't display at all! =
@@ -108,7 +114,7 @@ Here is a sample walkthrough.
 *I admit it may be not simple. If anyone have a better idea such as auto insert the cup image, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
 == Changelog ==
-= 0.2.11 =
+= 0.2.01 =
 * fix the bug that warriors don't update.
 * add alt for image in widget.
 * add a setting. Those who comment less than `minimum comment counts` times will not be warriors.
