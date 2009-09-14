@@ -2,7 +2,7 @@
 /*
  Plugin Name: wp-comment-warrior
  Plugin URI: http://www.mathelite.cn/archives/wordpress-comment-warrior-plugin.html
- Version: 0.2.01
+ Version: 0.3.15
  Author: flarefox
  Description: Show the most active commenters. The time filter can be calender month, calender year or custom days. 
  Author URI: http://mathelite.cn/
@@ -28,8 +28,8 @@
 */
 ?>
 <?php
-$ffox_lvmct_version = '0.2.01';
-$ffox_lvmct_date = '2009.09.07';
+$ffox_lvmct_version = '0.3.15';
+$ffox_lvmct_date = '2009.09.15';
 /*
  Load WP-Config File If This File Is Called Directly
 */
@@ -61,7 +61,6 @@ function ffox_comment_warrior_textdomain()
 {
 	load_plugin_textdomain('wp-comment-warrior', false, 'wp-comment-warrior');
 }
-
 
 /*
  Function: comment warrior Option Menu
@@ -216,6 +215,28 @@ function calc_comment_warrior($date, $periodtype)
 	}
 	$passwordpost = " AND post_password=''";
 	$userexclude = " AND user_id='0' AND comment_author_email<>'" . get_option('admin_email')."'";
+	// Since 0.3: Add Email blacklist
+	if (!empty($warrior_options['email_blacklist'])) {
+		$blacklists = explode(chr(13) . chr(10), $warrior_options['email_blacklist']);
+		foreach($blacklists as $b) {
+			if (empty($b)) continue;
+			if (strpos($b, '*') !== false) {
+				$userexclude .= " AND comment_author_email not like '" . str_replace('*', '%', $b) . "'";
+			} else 
+				$userexclude .= " AND comment_author_email<>'" . $b . "'";
+		}
+	}
+	// Since 0.3: Add Url blacklist
+	if (!empty($warrior_options['url_blacklist'])) {
+		$blacklists = explode(chr(13) . chr(10), $warrior_options['url_blacklist']);
+		foreach($blacklists as $b) {
+			if (empty($b)) continue;
+			if (strpos($b, '*') !== false) {
+				$userexclude .= " AND comment_author_url not like '" . str_replace('*', '%', $b) . "'";
+			} else 
+				$userexclude .= " AND comment_author_url<>'" . $b . "'";
+		}
+	}
 	$approved = " AND comment_approved='1'";
 	$shownumber = ( !isset($warrior_options['max_num']) or $warrior_options['max_num'] == 0 ) ? 10 : $warrior_options['max_num'];
 	$query = "SELECT COUNT(" . $identity . ") AS cmtcount, comment_author, comment_date, comment_author_email, comment_author_url 
@@ -223,6 +244,7 @@ function calc_comment_warrior($date, $periodtype)
 					ON ($wpdb->posts.ID=$wpdb->comments.comment_post_ID) 
 					WHERE ". $timefilter . $userexclude . $passwordpost . $approved . " ORDER BY comment_date DESC) AS tempcmt 
 				      GROUP BY " . $identity . " ORDER BY cmtcount DESC LIMIT " . $shownumber;
+
 	$sql = $wpdb->get_results($query);
 	for($i=0; $i<sizeof($sql); $i++) {
 		if ( isset($warrior_options['widget_min_counts']) and ($sql[$i]->cmtcount < $warrior_options['widget_min_counts']) )
@@ -234,9 +256,30 @@ function calc_comment_warrior($date, $periodtype)
 }
 
 /*
- Add css style
+ * Add css style
+ * Since 0.3: 
+ * If there isn't wp-comment-warrior-css.css in theme folder, use css text from options instead of css file.
 */
-add_action('wp_print_styles', 'comment_warrior_stylesheets');
+add_action('wp_head', 'comment_warrior_stylesheets');
+function comment_warrior_stylesheets() {
+	if(@file_exists(TEMPLATEPATH.'/wp-comment-warrior.css')) {
+		wp_enqueue_style('wp-comment-warrior', get_stylesheet_directory_uri().'/wp-comment-warrior.css', false, '0.30', 'all');
+	} else {
+		$warrior_options = get_option('warrior_options');
+		if (!isset($warrior_options['widget_css'])) {
+			$warrior_options['widget_css'] = '.commentwarrior li *{vertical-align:middle;}' . chr(13) . chr(10) .
+			'.commentwarrior li{border:none; float:left; width:50%;}' . chr(13) . chr(10) .
+			'.commentwarrior li img{margin-right:5px;}' . chr(13) . chr(10) .
+			'.commentwarrior img, .commentwarrior img.avatar{padding:2px 5px 2px 5px; border:1px solid #DDD;}';
+		}
+?>
+<style type="text/css">
+<?php echo $warrior_options['widget_css']; ?>
+</style>
+<?php
+	}
+}
+/*add_action('wp_print_styles', 'comment_warrior_stylesheets');
 function comment_warrior_stylesheets() {
 	if(@file_exists(TEMPLATEPATH.'/wp-comment-warrior-css.css')) {
 		wp_enqueue_style('wp-comment-warrior', get_stylesheet_directory_uri().'/comment-warrior.css', false, '0.30', 'all');
@@ -244,6 +287,7 @@ function comment_warrior_stylesheets() {
 		wp_enqueue_style('wp-comment-warrior', plugins_url('wp-comment-warrior/comment-warrior.css'), false, '0.30', 'all');
 	}	
 }
+*/
 
 /*
  Generate html for comment warrior.
@@ -256,8 +300,8 @@ function show_comment_warrior()
 		return;
 	}
 	$warrior_options = get_option('warrior_options');
+	$img_size = empty($warrior_options['warrior_img_size']) ? 32 : $warrior_options['warrior_img_size'];
 	if (intval($warrior_options['show_commentator_type']) == 1) {
-		$img_size = empty($warrior_options['warrior_img_size']) ? 32 : $warrior_options['warrior_img_size'];
 		echo '<div class="commentwarrior">';
 		foreach($warriors as $c) {
 			$alt = $c->name;
@@ -267,8 +311,10 @@ function show_comment_warrior()
 				$countstyle = str_replace('%PERIOD%', get_warrior_period(), $countstyle);
 			}
 			$alt .= $countstyle;
-			echo '<a href="' . $c->url . '" title="' . $alt . 
-				'"><img src="' . get_warrior_avatar($c->email, $img_size) . '" /></a>';
+			if (empty($c->url))
+				echo get_avatar($c->email, $img_size, '', $alt);
+			else
+				echo '<a href="' . $c->url . '" title="' . $alt . '">' . get_avatar($c->email, $img_size, '', $alt) . '</a>';
 		}
 		echo '</div>';
 	}
@@ -282,19 +328,27 @@ function show_comment_warrior()
 				$countstyle = str_replace('%PERIOD%', get_warrior_period(), $countstyle);
 			}
 			$alt .= $countstyle;
-			echo '<li>';
-			echo '<a href="' . $c->url . '" title="' . $alt. '">';
+			if (!empty($c->url))
+				echo '<li><a href="' . $c->url . '" title="' . $alt. '">';
+			else
+				echo '<li title="' . $alt . '">';
 			if (intval($warrior_options['show_commentator_type']) == 0)
 				echo $c->name;
 			else
-				echo '<img alt="'. $alt . '" src="' . get_warrior_avatar($c->email, 16) . '" />' . $c->name;
-			echo '</a>';
-			echo '</li>';
+				echo get_avatar($c->email, $img_size, '', $alt) . $c->name;
+			if (!empty($c->url))
+				echo '</a></li>';
+			else
+				echo '</li>';
 		}
 		echo '</ul>';
 	}
 	echo '<div style="clear:both"></div>';
 }
+
+/* 
+ * Since V0.3: 
+ * use get_avatar API instead.
 
 function get_warrior_avatar($email, $size){
 	$avatar_default = get_option('avatar_default');
@@ -329,6 +383,8 @@ function get_warrior_avatar($email, $size){
 	}
 	return $avatar;
 }
+*/
+
 /*
  Generate show cup html.
  if you want to show cup in the comment section, you must:

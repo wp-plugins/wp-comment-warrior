@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Lively Commenter Plugin for Wordpress 2.8\n"
+"Project-Id-Version: Comment Warrior Plugin for Wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-07 18:59+0800\n"
-"PO-Revision-Date: 2009-09-07 18:59+0800\n"
+"POT-Creation-Date: 2009-09-15 05:21+0800\n"
+"PO-Revision-Date: 2009-09-15 05:25+0800\n"
 "Last-Translator: flarefox <flarefox@163.com>\n"
 "Language-Team: http://mathelite.cn <flarefox@163.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,241 +16,314 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: comment-warrior-options.php:57
+#: comment-warrior-options.php:63
+#: comment-warrior-options.php:78
 msgid "Comment Warrior Options"
 msgstr "灌水先锋的设定"
 
-#: comment-warrior-options.php:62
+#: comment-warrior-options.php:68
 msgid "Updated"
 msgstr "已更新"
 
-#: comment-warrior-options.php:67
+#: comment-warrior-options.php:73
 msgid "No Comment Warrior Option Updated"
 msgstr "灌水先锋的设定 未更新"
 
 #: comment-warrior-options.php:78
+msgid "Resetted"
+msgstr "已重置"
+
+#: comment-warrior-options.php:89
 msgid "(%COMMENT_COUNT% comments in %PERIOD%)"
 msgstr "在%PERIOD%评论%COMMENT_COUNT%次"
 
-#: comment-warrior-options.php:193
+#: comment-warrior-options.php:228
 msgid "You can config comment warrior plugin on this page."
 msgstr "在此页面，你可以设定灌水先锋的各项参数。"
 
-#: comment-warrior-options.php:197
+#: comment-warrior-options.php:232
 msgid "Comment Warrior Options Page"
 msgstr "灌水先锋设定页"
 
-#: comment-warrior-options.php:199
+#: comment-warrior-options.php:234
 msgid "Widget Settings"
 msgstr "小工具设定"
 
-#: comment-warrior-options.php:200
+#: comment-warrior-options.php:235
+msgid "Filter Settings"
+msgstr "过滤器设定"
+
+#: comment-warrior-options.php:236
 msgid "Cup Settings"
 msgstr "奖杯设定"
 
-#: comment-warrior-options.php:206
+#: comment-warrior-options.php:242
 msgid "Comment Warrior Num:"
 msgstr "最多显示人数:"
 
-#: comment-warrior-options.php:212
-msgid "Minimum Comment Counts:"
-msgstr "最少评论次数:"
+#: comment-warrior-options.php:242
+#: comment-warrior-options.php:250
+#: comment-warrior-options.php:264
+#: comment-warrior-options.php:276
+#: comment-warrior-options.php:283
+#: comment-warrior-options.php:298
+#: comment-warrior-options.php:311
+#: comment-warrior-options.php:320
+#: comment-warrior-options.php:330
+msgid "Toggle Help Info"
+msgstr "帮助信息 开/关"
 
-#: comment-warrior-options.php:218
+#: comment-warrior-options.php:243
+msgid "<em>How many warriors will be listed?</em>"
+msgstr "<em>显示多少位灌水先锋？</em>"
+
+#: comment-warrior-options.php:250
 msgid "Warrior Show Style:"
 msgstr "名字显示格式:"
 
-#: comment-warrior-options.php:221
+#: comment-warrior-options.php:251
+msgid "<em>Three methods to show your warriors.</em>"
+msgstr "<em>可以用三种方式显示灌水先锋列表。</em>"
+
+#: comment-warrior-options.php:255
 msgid "Name and Image"
 msgstr "图像和文本"
 
-#: comment-warrior-options.php:222
+#: comment-warrior-options.php:256
 msgid "Image"
 msgstr "仅图像"
 
-#: comment-warrior-options.php:223
+#: comment-warrior-options.php:257
 msgid "Name"
 msgstr "仅文本"
 
-#: comment-warrior-options.php:226
+#: comment-warrior-options.php:260
 msgid "Image Size: "
 msgstr "图片大小: "
 
-#: comment-warrior-options.php:226
+#: comment-warrior-options.php:260
 msgid "px"
 msgstr "像素"
 
-#: comment-warrior-options.php:230
+#: comment-warrior-options.php:264
 msgid "Show Comment Counts:"
 msgstr "显示评论数量:"
 
-#: comment-warrior-options.php:233
-#: comment-warrior-options.php:272
+#: comment-warrior-options.php:265
+msgid "<em>Whether to show warrior's comments counts when mouse over the list.</em>"
+msgstr "<em>当鼠标移至灌水先锋列表上时，是否为每个人显示评论数。</em>"
+
+#: comment-warrior-options.php:269
+#: comment-warrior-options.php:350
 msgid "No"
 msgstr "否"
 
-#: comment-warrior-options.php:234
-#: comment-warrior-options.php:273
+#: comment-warrior-options.php:270
+#: comment-warrior-options.php:351
 msgid "Yes"
 msgstr "是"
 
-#: comment-warrior-options.php:240
+#: comment-warrior-options.php:276
 msgid "Comment Counts Template:"
 msgstr "评论数量模板:"
 
-#: comment-warrior-options.php:245
-msgid "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : comment counts"
-msgstr "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : 评论数"
+#: comment-warrior-options.php:277
+msgid "<em>You can use two variables:</em><br /><span style=\"color:#ff0000\">%COMMENT_COUNT%</span> : comment counts<br /><span style=\"color:#ff0000\">%PERIOD%</span> : stats period<br /><em>For example:</em><br />%COMMENT_COUNT% in %PERIOD%"
+msgstr "<em>可以使用两个参数:</em><br /><span style=\"color:#ff0000\">%COMMENT_COUNT%</span> : 评论计数<br /><span style=\"color:#ff0000\">%PERIOD%</span> : 评论周期<br /><em>例如:</em><br />在%PERIOD%评论%COMMENT_COUNT%次"
 
-#: comment-warrior-options.php:247
-msgid "<font color=\"#ff0000\">%PERIOD%</font> : stats period"
-msgstr "<font color=\"#ff0000\">%PERIOD%</font> : 统计周期"
-
-#: comment-warrior-options.php:250
+#: comment-warrior-options.php:283
 msgid "Stat Period Type:"
 msgstr "数据更新周期:"
 
-#: comment-warrior-options.php:253
+#: comment-warrior-options.php:284
+msgid "<em>You can choose CALENDAR MONTH, CALENDAR YEAR or CUSTOM DAYS.<br />Custom 0 days equals to all days.</em>"
+msgstr "<em>统计周期可以是自然月, 自然年或者自定义天数。<br />自定义天数为0等同于所有的日子。</em>"
+
+#: comment-warrior-options.php:288
 msgid "Calendar Month"
 msgstr "自然月"
 
-#: comment-warrior-options.php:254
+#: comment-warrior-options.php:289
 msgid "Calendar Year"
 msgstr "自然年"
 
-#: comment-warrior-options.php:255
+#: comment-warrior-options.php:290
 msgid "Custom"
 msgstr "自定义"
 
-#: comment-warrior-options.php:258
+#: comment-warrior-options.php:293
 msgid "days"
 msgstr "天"
 
-#: comment-warrior-options.php:268
-msgid "Toogle Help Info"
-msgstr "帮助信息 开/关"
+#: comment-warrior-options.php:298
+msgid "CSS Style:"
+msgstr "CSS样式:"
 
-#: comment-warrior-options.php:268
+#: comment-warrior-options.php:299
+msgid "<em>Since V0.3, css style is saved in options table.<br />Note: if there is a \"wp-comment-warrior.css\" file in current theme folder, the file will be used.</em>"
+msgstr "<em>从0.3版起, CSS样式保存于选项表中。<br />注意: 若当前主题目录中存在\"wp-comment-warrior.css\"文件，将使用此文件设定的CSS样式。</em>"
+
+#: comment-warrior-options.php:311
+msgid "Minimum Comment Counts:"
+msgstr "最少评论次数:"
+
+#: comment-warrior-options.php:312
+msgid "<em>A warrior must comment how many times at least.</em>"
+msgstr "<em>至少发表多少次评论才能成为先锋。</em>"
+
+#: comment-warrior-options.php:320
+msgid "EMail Banned List:"
+msgstr "邮件屏蔽列表:"
+
+#: comment-warrior-options.php:322
+msgid "<em><strong>Per email per line.</strong><br />You can input <span style=\"color:#FF0000\">FULL TEXT</span> (d@d.com) or <span style=\"color:#FF0000\">USE *</span>, for example:<br />*@d.com will ban d.com.<br />d@* will ban d's emails.<br />*com will ban com domains.<br />and so on.</em>"
+msgstr "<em><strong>每个邮件地址一行。</strong><br />可以输入<span style=\"color:#FF0000\">完整的邮件地址</span>(d@d.com)或<span style=\"color:#FF0000\">使用*</span>, 例如:<br />*@d.com 屏蔽d.com的邮件地址。<br />d@*屏蔽用户名为d的所有地址。<br />*com屏蔽com结尾的邮件地址。<br />等等。</em>"
+
+#: comment-warrior-options.php:330
+msgid "URL Banned List:"
+msgstr "链接屏蔽列表:"
+
+#: comment-warrior-options.php:332
+msgid "<em><strong>Per url per line.</strong><br />You can input <span style=\"color:#FF0000\">FULL TEXT</span> (http://www.d.com) or <span style=\"color:#FF0000\">USE *</span>, for example:<br />*.d.com will ban all sub sites of d.com.<br />*d* will ban all urls include \"d\".<br />*com will ban com domains.<br />and so on.</em>"
+msgstr "<em><strong>每个链接一行。</strong><br />可以输入<span style=\"color:#FF0000\">完整的地址</span>(http://www.d.com)或<span style=\"color:#FF0000\">使用*通配符</span>, 例如:<br />*.d.com屏蔽所有d.com的子域名。<br />*d*屏蔽所有含有d的链接。<br />*com屏蔽所有com域名。<br />等等。</em>"
+
+#: comment-warrior-options.php:339
+msgid "<span style=\"color:#ff0000\">Note: \"d.com\" is ONLY an example! That does NOT mean it is some \"bad\" site.</span>"
+msgstr "<span style=\"color:#ff0000\">注意: \"d.com\"仅仅用于举例! 并不是说这个站点需要被过滤。</span>"
+
+#: comment-warrior-options.php:345
 msgid "Show Cup:"
 msgstr "显示奖杯图片:"
 
-#: comment-warrior-options.php:280
-msgid "To show the cup in comment list, you must insert the function \"get_cup($comment->comment_author_email)\" into some proper place in comments.php. <br />For additional information, please refer to <a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior-en.html\">Readme</a>."
-msgstr "在评论列表中显示奖杯，必须把函数\"get_cup($comment->comment_author_email)\"插入到comments.php的合适位置。<br />进一步的说明，请参见<a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior.html\">帮助页面</a>。"
+#: comment-warrior-options.php:345
+msgid "Toogle Help Info"
+msgstr "帮助信息 开/关"
 
-#: comment-warrior-options.php:285
+#: comment-warrior-options.php:346
+msgid "<em>To show cups in comment list, you must insert function \"get_cup($email)\" into right place in comments.php. <br />For additional information, please refer to <a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior-en.html\">Readme</a>.</em>"
+msgstr "<em>在评论列表中显示奖杯，必须把函数\"get_cup($email)\"插入到comments.php的合适位置。<br />进一步的说明，请参见<a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior.html\">帮助页面</a>。</em>"
+
+#: comment-warrior-options.php:360
 msgid "Cup Image Url:"
 msgstr "奖杯图片地址:"
 
-#: comment-warrior-options.php:289
+#: comment-warrior-options.php:364
 msgid "Leave blank to use default image."
 msgstr "留空将使用默认图片"
 
-#: comment-warrior-options.php:294
+#: comment-warrior-options.php:369
 msgid "Cup Image Width(px):"
 msgstr "奖杯图片宽度(像素):"
 
-#: comment-warrior-options.php:298
+#: comment-warrior-options.php:373
 msgid "To keep the original width, input 0 or leave blank."
 msgstr "设为0或留空以使用原始宽度."
 
-#: comment-warrior-options.php:303
+#: comment-warrior-options.php:378
 msgid "Cup Image Height(px):"
 msgstr "奖杯图片高度(像素):"
 
-#: comment-warrior-options.php:307
+#: comment-warrior-options.php:382
 msgid "To keep the original height, input 0 or leave blank."
 msgstr "设为0或留空以使用原始高度."
 
-#: comment-warrior-options.php:311
+#: comment-warrior-options.php:386
 msgid "Cup Image Preview:"
 msgstr "奖杯图片预览:"
 
-#: comment-warrior-options.php:318
+#: comment-warrior-options.php:393
+msgid "Reset"
+msgstr "重置设定"
+
+#: comment-warrior-options.php:394
 msgid "Save Changes"
 msgstr "保存更改"
 
-#: comment-warrior-options.php:323
+#: comment-warrior-options.php:399
 msgid "Author:"
 msgstr "作者:"
 
-#: comment-warrior-options.php:324
+#: comment-warrior-options.php:400
 msgid "Version:"
 msgstr "版本:"
 
-#: comment-warrior-options.php:325
+#: comment-warrior-options.php:401
 msgid "Date:"
 msgstr "日期:"
 
-#: wp-comment-warrior.php:72
-#: wp-comment-warrior.php:404
-#: wp-comment-warrior.php:429
+#: wp-comment-warrior.php:71
+#: wp-comment-warrior.php:460
+#: wp-comment-warrior.php:485
 msgid "Comment Warrior"
 msgstr "灌水先锋"
 
-#: wp-comment-warrior.php:125
-#: wp-comment-warrior.php:141
+#: wp-comment-warrior.php:124
+#: wp-comment-warrior.php:140
 msgid "M. Y"
 msgstr "Y年m月"
 
-#: wp-comment-warrior.php:128
-#: wp-comment-warrior.php:144
+#: wp-comment-warrior.php:127
+#: wp-comment-warrior.php:143
 msgid "the year Y"
 msgstr "Y年"
 
-#: wp-comment-warrior.php:132
-#: wp-comment-warrior.php:148
+#: wp-comment-warrior.php:131
+#: wp-comment-warrior.php:147
 msgid "all days"
 msgstr "所有的日子"
 
-#: wp-comment-warrior.php:134
-#: wp-comment-warrior.php:150
+#: wp-comment-warrior.php:133
+#: wp-comment-warrior.php:149
 #, php-format
 msgid "recent %d days"
 msgstr "最近%d天"
 
-#: wp-comment-warrior.php:255
+#: wp-comment-warrior.php:299
 msgid "No comment warriors now."
 msgstr "暂无"
 
-#: wp-comment-warrior.php:360
-#: wp-comment-warrior.php:363
+#: wp-comment-warrior.php:416
+#: wp-comment-warrior.php:419
 msgid "Y"
 msgstr "Y年"
 
-#: wp-comment-warrior.php:361
-#: wp-comment-warrior.php:364
+#: wp-comment-warrior.php:417
+#: wp-comment-warrior.php:420
 msgid "M Y"
 msgstr "Y年m月"
 
-#: wp-comment-warrior.php:369
+#: wp-comment-warrior.php:425
 #, php-format
 msgid "Comment Warrior! In the month %s, this person received the honor for %d comments."
 msgstr "灌水先锋！这位同志在%s灌水%d次，获得此荣誉。"
 
-#: wp-comment-warrior.php:372
+#: wp-comment-warrior.php:428
 #, php-format
 msgid "Comment Warrior! In the year %s, this person received the honor for %d comments."
 msgstr "灌水先锋！这位同志在%s灌水%d次，获得此荣誉。"
 
-#: wp-comment-warrior.php:376
+#: wp-comment-warrior.php:432
 #, php-format
 msgid "Comment Warrior! This person received the honor for %d comments up to now."
 msgstr "灌水先锋！这位同志合计灌水%d次，获得此荣誉。"
 
-#: wp-comment-warrior.php:379
+#: wp-comment-warrior.php:435
 #, php-format
 msgid "Comment Warrior! In the last %s days, this person received the honor for %d comments."
 msgstr "灌水先锋！这位同志在最近%s天灌水%d次，获得此荣誉。"
 
-#: wp-comment-warrior.php:403
+#: wp-comment-warrior.php:459
 msgid "Show top N active commentators during a selected period."
 msgstr "显示选定周期内最活跃的评论者。"
 
-#: wp-comment-warrior.php:433
+#: wp-comment-warrior.php:489
 msgid "Title:"
 msgstr "标题:"
 
+#~ msgid "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : comment counts"
+#~ msgstr "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : 评论数"
+#~ msgid "<font color=\"#ff0000\">%PERIOD%</font> : stats period"
+#~ msgstr "<font color=\"#ff0000\">%PERIOD%</font> : 统计周期"
 #~ msgid "Show Help"
 #~ msgstr "切换帮助显示"
 #~ msgid "WP-comment-warrior Widget"

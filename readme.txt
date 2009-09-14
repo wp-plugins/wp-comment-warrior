@@ -4,7 +4,7 @@ Donate link:
 Tags: comments, warrior,period,stats
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: 0.2.01
+Stable tag: 0.3.15
 
 Show relevant comment warriors in different period. Also an honor cup can be inserted for comment warriors in their comments.
 
@@ -31,7 +31,7 @@ You can also choose whether to show `comment counts`, whether to show `cup image
 
 Find more information in `FAQ` section.
 
-If you have any question or suggestion, please post here or mail to flarefox at 163 dot com. I will appreciate it very much and response as soon as possible.
+If you have any question or suggestion, please post here or send mail to flarefox@163.com. I will appreciate it very much and response as soon as possible.
 
 == Installation ==
 
@@ -49,7 +49,9 @@ If you have any question or suggestion, please post here or mail to flarefox at 
 
 3. Widget Settings
 
-2. Cup Settings
+4. Filter Settings
+
+5. Cup Settings
 
 == Frequently Asked Questions ==
 
@@ -64,6 +66,16 @@ After install and activate it, you can add `Comment Warrior` Widget in admin pan
 `<?php if function_exists('show_comment_warrior') show_comment_warrior(); ?>`
 
 A `ul-li` list will be generated.
+
+= I cannot see any photo in widget! =
+
+Please check comment warrior settings first. Do you choose `Warrior Show Style` to be `Image and Text` or `Image`?
+
+Then check General->Discussion settings. You should focus on:
+
+1. `Avatar Display` must be turned on, that is to say, `Show Avatars`.
+
+2. If `Default Avatar` is `Blank`, persons who haven't custom their photoes in avatar site will be displayed as a blank image.
 
 = Can I add stats period in widget? =
 
@@ -84,6 +96,8 @@ Example( Period Type : get_warrior_period() )
 = The widget's style is urgely, or it doesn't display at all! =
 
 This problem is probably caused by css style. You can modify comment-warrior.css in plugin folder.
+
+After V0.3.15, there is not comment-warrior.css in plugin folder any more. You can modify `Css Style` settings in option page.
 
 = Option page doesn't work, why? =
 
@@ -114,13 +128,21 @@ Here is a sample walkthrough.
 *I admit it may be not simple. If anyone have a better idea such as auto insert the cup image, please mail to `flarefox at 163 dot com`. I would appreciate it very much!*
 
 == Changelog ==
+
+= 0.3.15 =
+* You have the ability to ban warriors through email or url filters.
+* CSS style is saved in options table, so plugin's update will not reset your customed style. (Remember to backup your custom style before update to this version)
+* When display style is `Image and Text`, the image size can be changed now.
+* Warriors won't be displayed as links any more if their site urls are empty.
+* Fix the bug that warrior's photo is very big in some conditions.
+* Add help info in option page. Just click (?).
+
 = 0.2.01 =
-* fix the bug that warriors don't update.
-* add alt for image in widget.
-* add a setting. Those who comment less than `minimum comment counts` times will not be warriors.
-* widget can display stats period now.
-* `custom 0 days` equals to `all days` now.
-* and more...
+* Fix the bug that warriors don't update.
+* Add alt for image in widget.
+* Add a setting. Those who comment less than `minimum comment counts` times will not be warriors.
+* Widget can display stats period now.
+* `Custom 0 days` equals to `all days` now.
 
 = 0.1.66 =
 * Rewrite option page with jQuery, thus all elements are ajaxed.

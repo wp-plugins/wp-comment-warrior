@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Lively Commenter Plugin for Wordpress 2.8\n"
+"Project-Id-Version: Comment Warrior Plugin for Wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-07 18:59+0800\n"
-"PO-Revision-Date: 2009-09-07 18:59+0800\n"
+"POT-Creation-Date: 2009-09-15 05:21+0800\n"
+"PO-Revision-Date: 2009-09-15 05:25+0800\n"
 "Last-Translator: flarefox <flarefox@163.com>\n"
 "Language-Team: http://mathelite.cn <flarefox@163.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,238 +16,307 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: comment-warrior-options.php:57
+#: comment-warrior-options.php:63
+#: comment-warrior-options.php:78
 msgid "Comment Warrior Options"
 msgstr ""
 
-#: comment-warrior-options.php:62
+#: comment-warrior-options.php:68
 msgid "Updated"
 msgstr ""
 
-#: comment-warrior-options.php:67
+#: comment-warrior-options.php:73
 msgid "No Comment Warrior Option Updated"
 msgstr ""
 
 #: comment-warrior-options.php:78
+msgid "Resetted"
+msgstr ""
+
+#: comment-warrior-options.php:89
 msgid "(%COMMENT_COUNT% comments in %PERIOD%)"
 msgstr ""
 
-#: comment-warrior-options.php:193
+#: comment-warrior-options.php:228
 msgid "You can config comment warrior plugin on this page."
 msgstr ""
 
-#: comment-warrior-options.php:197
+#: comment-warrior-options.php:232
 msgid "Comment Warrior Options Page"
 msgstr ""
 
-#: comment-warrior-options.php:199
+#: comment-warrior-options.php:234
 msgid "Widget Settings"
 msgstr ""
 
-#: comment-warrior-options.php:200
+#: comment-warrior-options.php:235
+msgid "Filter Settings"
+msgstr ""
+
+#: comment-warrior-options.php:236
 msgid "Cup Settings"
 msgstr ""
 
-#: comment-warrior-options.php:206
+#: comment-warrior-options.php:242
 msgid "Comment Warrior Num:"
 msgstr ""
 
-#: comment-warrior-options.php:212
-msgid "Minimum Comment Counts:"
+#: comment-warrior-options.php:242
+#: comment-warrior-options.php:250
+#: comment-warrior-options.php:264
+#: comment-warrior-options.php:276
+#: comment-warrior-options.php:283
+#: comment-warrior-options.php:298
+#: comment-warrior-options.php:311
+#: comment-warrior-options.php:320
+#: comment-warrior-options.php:330
+msgid "Toggle Help Info"
 msgstr ""
 
-#: comment-warrior-options.php:218
-msgid "Warrior Show Style:"
-msgstr ""
-
-#: comment-warrior-options.php:221
-msgid "Name and Image"
-msgstr ""
-
-#: comment-warrior-options.php:222
-msgid "Image"
-msgstr ""
-
-#: comment-warrior-options.php:223
-msgid "Name"
-msgstr ""
-
-#: comment-warrior-options.php:226
-msgid "Image Size: "
-msgstr ""
-
-#: comment-warrior-options.php:226
-msgid "px"
-msgstr ""
-
-#: comment-warrior-options.php:230
-msgid "Show Comment Counts:"
-msgstr ""
-
-#: comment-warrior-options.php:233
-#: comment-warrior-options.php:272
-msgid "No"
-msgstr ""
-
-#: comment-warrior-options.php:234
-#: comment-warrior-options.php:273
-msgid "Yes"
-msgstr ""
-
-#: comment-warrior-options.php:240
-msgid "Comment Counts Template:"
-msgstr ""
-
-#: comment-warrior-options.php:245
-msgid "<font color=\"#ff0000\">%COMMENT_COUNT%</font> : comment counts"
-msgstr ""
-
-#: comment-warrior-options.php:247
-msgid "<font color=\"#ff0000\">%PERIOD%</font> : stats period"
+#: comment-warrior-options.php:243
+msgid "<em>How many warriors will be listed?</em>"
 msgstr ""
 
 #: comment-warrior-options.php:250
-msgid "Stat Period Type:"
+msgid "Warrior Show Style:"
 msgstr ""
 
-#: comment-warrior-options.php:253
-msgid "Calendar Month"
-msgstr ""
-
-#: comment-warrior-options.php:254
-msgid "Calendar Year"
+#: comment-warrior-options.php:251
+msgid "<em>Three methods to show your warriors.</em>"
 msgstr ""
 
 #: comment-warrior-options.php:255
-msgid "Custom"
+msgid "Name and Image"
 msgstr ""
 
-#: comment-warrior-options.php:258
-msgid "days"
+#: comment-warrior-options.php:256
+msgid "Image"
 msgstr ""
 
-#: comment-warrior-options.php:268
-msgid "Toogle Help Info"
+#: comment-warrior-options.php:257
+msgid "Name"
 msgstr ""
 
-#: comment-warrior-options.php:268
-msgid "Show Cup:"
+#: comment-warrior-options.php:260
+msgid "Image Size: "
 msgstr ""
 
-#: comment-warrior-options.php:280
-msgid "To show the cup in comment list, you must insert the function \"get_cup($comment->comment_author_email)\" into some proper place in comments.php. <br />For additional information, please refer to <a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior-en.html\">Readme</a>."
+#: comment-warrior-options.php:260
+msgid "px"
 msgstr ""
 
-#: comment-warrior-options.php:285
-msgid "Cup Image Url:"
+#: comment-warrior-options.php:264
+msgid "Show Comment Counts:"
+msgstr ""
+
+#: comment-warrior-options.php:265
+msgid "<em>Whether to show warrior's comments counts when mouse over the list.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:269
+#: comment-warrior-options.php:350
+msgid "No"
+msgstr ""
+
+#: comment-warrior-options.php:270
+#: comment-warrior-options.php:351
+msgid "Yes"
+msgstr ""
+
+#: comment-warrior-options.php:276
+msgid "Comment Counts Template:"
+msgstr ""
+
+#: comment-warrior-options.php:277
+msgid "<em>You can use two variables:</em><br /><span style=\"color:#ff0000\">%COMMENT_COUNT%</span> : comment counts<br /><span style=\"color:#ff0000\">%PERIOD%</span> : stats period<br /><em>For example:</em><br />%COMMENT_COUNT% in %PERIOD%"
+msgstr ""
+
+#: comment-warrior-options.php:283
+msgid "Stat Period Type:"
+msgstr ""
+
+#: comment-warrior-options.php:284
+msgid "<em>You can choose CALENDAR MONTH, CALENDAR YEAR or CUSTOM DAYS.<br />Custom 0 days equals to all days.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:288
+msgid "Calendar Month"
 msgstr ""
 
 #: comment-warrior-options.php:289
-msgid "Leave blank to use default image."
+msgid "Calendar Year"
 msgstr ""
 
-#: comment-warrior-options.php:294
-msgid "Cup Image Width(px):"
+#: comment-warrior-options.php:290
+msgid "Custom"
+msgstr ""
+
+#: comment-warrior-options.php:293
+msgid "days"
 msgstr ""
 
 #: comment-warrior-options.php:298
-msgid "To keep the original width, input 0 or leave blank."
+msgid "CSS Style:"
 msgstr ""
 
-#: comment-warrior-options.php:303
-msgid "Cup Image Height(px):"
-msgstr ""
-
-#: comment-warrior-options.php:307
-msgid "To keep the original height, input 0 or leave blank."
+#: comment-warrior-options.php:299
+msgid "<em>Since V0.3, css style is saved in options table.<br />Note: if there is a \"wp-comment-warrior.css\" file in current theme folder, the file will be used.</em>"
 msgstr ""
 
 #: comment-warrior-options.php:311
+msgid "Minimum Comment Counts:"
+msgstr ""
+
+#: comment-warrior-options.php:312
+msgid "<em>A warrior must comment how many times at least.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:320
+msgid "EMail Banned List:"
+msgstr ""
+
+#: comment-warrior-options.php:322
+msgid "<em><strong>Per email per line.</strong><br />You can input <span style=\"color:#FF0000\">FULL TEXT</span> (d@d.com) or <span style=\"color:#FF0000\">USE *</span>, for example:<br />*@d.com will ban d.com.<br />d@* will ban d's emails.<br />*com will ban com domains.<br />and so on.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:330
+msgid "URL Banned List:"
+msgstr ""
+
+#: comment-warrior-options.php:332
+msgid "<em><strong>Per url per line.</strong><br />You can input <span style=\"color:#FF0000\">FULL TEXT</span> (http://www.d.com) or <span style=\"color:#FF0000\">USE *</span>, for example:<br />*.d.com will ban all sub sites of d.com.<br />*d* will ban all urls include \"d\".<br />*com will ban com domains.<br />and so on.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:339
+msgid "<span style=\"color:#ff0000\">Note: \"d.com\" is ONLY an example! That does NOT mean it is some \"bad\" site.</span>"
+msgstr ""
+
+#: comment-warrior-options.php:345
+msgid "Show Cup:"
+msgstr ""
+
+#: comment-warrior-options.php:345
+msgid "Toogle Help Info"
+msgstr ""
+
+#: comment-warrior-options.php:346
+msgid "<em>To show cups in comment list, you must insert function \"get_cup($email)\" into right place in comments.php. <br />For additional information, please refer to <a target=\"_blank\" href=\"http://www.mathelite.cn/archives/wordpress-plugin-comment-warrior-en.html\">Readme</a>.</em>"
+msgstr ""
+
+#: comment-warrior-options.php:360
+msgid "Cup Image Url:"
+msgstr ""
+
+#: comment-warrior-options.php:364
+msgid "Leave blank to use default image."
+msgstr ""
+
+#: comment-warrior-options.php:369
+msgid "Cup Image Width(px):"
+msgstr ""
+
+#: comment-warrior-options.php:373
+msgid "To keep the original width, input 0 or leave blank."
+msgstr ""
+
+#: comment-warrior-options.php:378
+msgid "Cup Image Height(px):"
+msgstr ""
+
+#: comment-warrior-options.php:382
+msgid "To keep the original height, input 0 or leave blank."
+msgstr ""
+
+#: comment-warrior-options.php:386
 msgid "Cup Image Preview:"
 msgstr ""
 
-#: comment-warrior-options.php:318
+#: comment-warrior-options.php:393
+msgid "Reset"
+msgstr ""
+
+#: comment-warrior-options.php:394
 msgid "Save Changes"
 msgstr ""
 
-#: comment-warrior-options.php:323
+#: comment-warrior-options.php:399
 msgid "Author:"
 msgstr ""
 
-#: comment-warrior-options.php:324
+#: comment-warrior-options.php:400
 msgid "Version:"
 msgstr ""
 
-#: comment-warrior-options.php:325
+#: comment-warrior-options.php:401
 msgid "Date:"
 msgstr ""
 
-#: wp-comment-warrior.php:72
-#: wp-comment-warrior.php:404
-#: wp-comment-warrior.php:429
+#: wp-comment-warrior.php:71
+#: wp-comment-warrior.php:460
+#: wp-comment-warrior.php:485
 msgid "Comment Warrior"
 msgstr ""
 
-#: wp-comment-warrior.php:125
-#: wp-comment-warrior.php:141
+#: wp-comment-warrior.php:124
+#: wp-comment-warrior.php:140
 msgid "M. Y"
 msgstr ""
 
-#: wp-comment-warrior.php:128
-#: wp-comment-warrior.php:144
+#: wp-comment-warrior.php:127
+#: wp-comment-warrior.php:143
 msgid "the year Y"
 msgstr ""
 
-#: wp-comment-warrior.php:132
-#: wp-comment-warrior.php:148
+#: wp-comment-warrior.php:131
+#: wp-comment-warrior.php:147
 msgid "all days"
 msgstr ""
 
-#: wp-comment-warrior.php:134
-#: wp-comment-warrior.php:150
+#: wp-comment-warrior.php:133
+#: wp-comment-warrior.php:149
 #, php-format
 msgid "recent %d days"
 msgstr ""
 
-#: wp-comment-warrior.php:255
+#: wp-comment-warrior.php:299
 msgid "No comment warriors now."
 msgstr ""
 
-#: wp-comment-warrior.php:360
-#: wp-comment-warrior.php:363
+#: wp-comment-warrior.php:416
+#: wp-comment-warrior.php:419
 msgid "Y"
 msgstr ""
 
-#: wp-comment-warrior.php:361
-#: wp-comment-warrior.php:364
+#: wp-comment-warrior.php:417
+#: wp-comment-warrior.php:420
 msgid "M Y"
 msgstr ""
 
-#: wp-comment-warrior.php:369
+#: wp-comment-warrior.php:425
 #, php-format
 msgid "Comment Warrior! In the month %s, this person received the honor for %d comments."
 msgstr ""
 
-#: wp-comment-warrior.php:372
+#: wp-comment-warrior.php:428
 #, php-format
 msgid "Comment Warrior! In the year %s, this person received the honor for %d comments."
 msgstr ""
 
-#: wp-comment-warrior.php:376
+#: wp-comment-warrior.php:432
 #, php-format
 msgid "Comment Warrior! This person received the honor for %d comments up to now."
 msgstr ""
 
-#: wp-comment-warrior.php:379
+#: wp-comment-warrior.php:435
 #, php-format
 msgid "Comment Warrior! In the last %s days, this person received the honor for %d comments."
 msgstr ""
 
-#: wp-comment-warrior.php:403
+#: wp-comment-warrior.php:459
 msgid "Show top N active commentators during a selected period."
 msgstr ""
 
-#: wp-comment-warrior.php:433
+#: wp-comment-warrior.php:489
 msgid "Title:"
 msgstr ""
 
